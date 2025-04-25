@@ -25,7 +25,7 @@ class Cat(models.Model):
     
 
 class Feeding(models.Model):
-    date = models.DateField()
+    date = models.DateField('Feeding Date')
     meal = models.CharField(
         max_length=1,
         # add the 'choices' field option
@@ -38,4 +38,6 @@ class Feeding(models.Model):
     def __str__(self):
         return f'{self.get_meal_display()} on {self.date}'
         # this will print out breakfast, lunch, dinner
-
+    # Define the default order of feedings
+    class Meta:
+        ordering = ['-date']  # This line makes the newest feedings appear first
