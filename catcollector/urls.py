@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_app.urls')), # Mounts main_app's routes at the root URL
     # direct all web traffic for the root route to the main_app's routes
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
